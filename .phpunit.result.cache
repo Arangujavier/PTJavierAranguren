@@ -1,1 +1,1 @@
-{"version":1,"defects":{"ConnectionApiTest::testGetMovieJson":8},"times":{"ConnectionApiTest::testGetMovieJson":0.276}}
+{"version":1,"defects":{"ConnectionApiTest::testGetMovieJson":8,"ConnectionApiTest::testSearchMovieByName":7},"times":{"ConnectionApiTest::testGetMovieJson":0.281,"ConnectionApiTest::testSearchMovieByName":0.258}}
