@@ -1,5 +1,5 @@
 {
-    "name": "PTTesicnor",
+    "name": "tesicnor/pttesicnor",
     "description": "Tratamiento Peliculas usando API y BBDD",
     "license": "proprietary",
     "require-dev": {
