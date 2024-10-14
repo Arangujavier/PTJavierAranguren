@@ -1,5 +1,5 @@
 <?php
-    require __DIR__ . DIRECTORY_SEPARATOR . '..\ConnectionAPI.php';
+    require __DIR__ . DIRECTORY_SEPARATOR . '/../ConnectionAPI.php';
 
     class ConnectionApiTest extends PHPUnit\Framework\TestCase{
         public function testGetMovieJson(){
