@@ -3,7 +3,7 @@
 
     class ConnectionApiTest extends PHPUnit\Framework\TestCase{
         public function testGetMovieJson(){
-            $name = "Star+Wars";
+            $name = "Star Wars";
             $mock = \Mockery::mock('file_get_contents');
             $objetive_json = file_get_contents(__DIR__ . DIRECTORY_SEPARATOR .'resultGetMovieJson.json');
             $mock->shouldReceive('file_get_contents')->andReturn($objetive_json);
@@ -16,7 +16,7 @@
         }
 
         public function testSearchMovieByName(){
-            $name = "Star+Wars";
+            $name = "Star Wars";
             $mock = \Mockery::mock('file_get_contents');
             $json = file_get_contents(__DIR__ . DIRECTORY_SEPARATOR .'resultSerachMovieByNameTest.json');
             $mock->shouldReceive('file_get_contents')->andReturn($json);

@@ -19,7 +19,7 @@
 
         public function searchMovieByName($name){
             // Obtener array peliculas
-            $query = $this->url . '?apikey=' . $this->apiKey . '&s=' . $name;
+            $query = $this->url . '?apikey=' . $this->apiKey . '&s=' . urlencode($name);
             $json = file_get_contents($query, true);
             $movies = json_decode($json, true)['Search'];
             $titles = array();
@@ -31,16 +31,7 @@
 
         public function getMovieJson($name){
             // Obtener json correspondientes
-            $query = $this->url . '?apikey=' . $this->apiKey . '&t=' . $name;
+            $query = $this->url . '?apikey=' . $this->apiKey . '&t=' . urlencode($name);
             return file_get_contents($query, true);
         }
     }
-
-    // Prueba
-    $connection = new ConnectionAPI("731e41f");
-    $titles = $connection->searchMovieByName("Star+Wars");
-    echo json_encode($titles);
-
-    //$json = $connection->getMovieJson("Star+Wars");
-    //echo 'Contendino Json:<br>';
-    //print_r($json);
