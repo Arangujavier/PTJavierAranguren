@@ -1,5 +1,5 @@
 # PTJavierAranguren ##
-## Prueba técnica de Tecsinor ##
+## Prueba técnica de Tesicnor ##
 1. Obtener de la API toda la información relativa a las películas de &quot;Star Wars&quot;.
    
 2. De la información obtenida, quedarse con los siguientes datos:
