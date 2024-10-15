@@ -1,9 +1,14 @@
 <?php
+    /**
+     * Movie: Objeto que almacena los datos de las peliculas.
+     * Se pueden proporcionar los datos para su creacion.
+     * Se puede usar un json para su creacion.
+     */
     class movie{
         private $id;
         private $title;
         private $year;
-        private $plot;
+        private $plot; // Trama de la pelicula
 
         // Constructores
         public function __construct($id, $title, $year, $plot){
