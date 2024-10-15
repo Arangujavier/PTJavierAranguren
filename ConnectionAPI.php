@@ -1,15 +1,11 @@
 <?php
-    // Ejemplo consulta
-    // https://www.omdbapi.com/?apikey=731e41f&t=Star+Wars
-    /*
-    1. Diseñar Test que compruebe la pelicula de Star Wars con la respuesta,
-    para ello se crean un archivo de texto(json) con la respuesta esperada
-    2. Diseñar Funcion.
-    3. Probar Funcion.
-    */
-
+    /**
+     * 
+     * ConnectionAPI: Permite realizar operaciones con la API omdbapi, que permite obtener información de peliculas
+     * Es necesario proporcionar una apiKey
+     */
     class ConnectionAPI{
-        private $url = "https://www.omdbapi.com/";
+        private $url = "https://www.omdbapi.com/"; // Ruta de API
         private $apiKey;
 
         public function __construct($apiKey){
@@ -17,21 +13,37 @@
             $this->apiKey = $apiKey;
         }
 
+        /**
+         * searchMovieByName: A partir de un nombre se obtiene una lista de ids de las peliculas con el mismo nombre.
+         * @param mixed $name Nombre de la pelicula a identificar.
+         * @return array Conjunto de ids que tienen el mismo nombre.
+         */
         public function searchMovieByName($name){
             // Obtener array peliculas
             $query = $this->url . '?apikey=' . $this->apiKey . '&s=' . urlencode($name);
+
+            // Obtener json
             $json = file_get_contents($query, true);
+
+            // Tratar json
             $movies = json_decode($json, true)['Search'];
-            $titles = array();
+            
+            // Lista ids
+            $ids = array();
             foreach($movies as $movie){
-                $titles[] = $movie['Title'];
+                $ids[] = $movie['imdbID'];
             }
-            return $titles;
+            return $ids;
         }
 
-        public function getMovieJson($name){
+        /**
+         * getMovieJson:  Obtiene la información de una película a partir de su id.
+         * @param string $id Id de la pelicula
+         * @return string Información de la pelicula
+         */
+        public function getMovieJson($id){
             // Obtener json correspondientes
-            $query = $this->url . '?apikey=' . $this->apiKey . '&t=' . urlencode($name);
+            $query = $this->url . '?apikey=' . $this->apiKey . '&i=' . urlencode($id);
             return file_get_contents($query, true);
         }
     }

@@ -5,6 +5,7 @@
     // Mostrar la lista de los json de las peliculas
     $connection = new ConnectionAPI('731e41f');
     $movies = $connection->searchMovieByName('Star Wars');
+    echo json_encode($movies);
     foreach($movies as $movie){
         $json = $connection->getMovieJson($movie);
         $actualMovie = Movie::fromJson($json);
