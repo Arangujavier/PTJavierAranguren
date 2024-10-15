@@ -15,4 +15,3 @@ use function PHPUnit\Framework\assertEquals;
             assertEquals($movieObtained->getPlot(), $movieObjetive->getPlot());
         }
     }
-?>
