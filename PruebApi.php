@@ -18,9 +18,5 @@
         echo 'Año: ' . $actualMovie->getYear() . '<br>';
         echo 'Trama: ' . $actualMovie->getPlot() . '<br>';
         echo '<br>';
-        $query = "insert into movie (Id, Year, Plot, Title) values ('" . $bbdd_connection->real_escape_string($actualMovie->getId()) . "', " . $actualMovie->getYear() . ", '" . $bbdd_connection->real_escape_string($actualMovie->getPlot()) . "','" . $bbdd_connection->real_escape_string($actualMovie->getTitle()) . "')";
-        echo "Consulta: " . $query . "<br>";
-
-        $result = $bbdd_connection->query($query);
-        echo 'Resultado: ' .  $result . '<br>';
+        echo 'Resultado: ' .  $actualMovie->setBBDD() . '<br>';
     }
