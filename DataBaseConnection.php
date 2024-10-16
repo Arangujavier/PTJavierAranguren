@@ -35,11 +35,11 @@
             $query = 'SELECT * FROM movie';
             $result = $this->connection->executeQuery($query);
             $movies = $result->fetchAll(PDO::FETCH_ASSOC);
-            $respuesta = '';
+            $movie_array = array();
             foreach ($movies as $movie) {
-                $respuesta = $respuesta . "ID: {$movie['Id']}, Año: {$movie['Year']}, Trama: {$movie['Plot']}, Titulo: {$movie['Title']}<br>";
+                $movie_array[] = new Movie($movie['Id'], $movie['Title'], $movie['year'], $movie['plot']);
             }
-            return $respuesta;
+            return $movie_array;
         }
     }
     
