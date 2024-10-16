@@ -1,5 +1,4 @@
 <?php
-    require_once 'BBDD.php';
     /**
      * Movie: Objeto que almacena los datos de las peliculas.
      * Se pueden proporcionar los datos para su creacion.
@@ -55,35 +54,5 @@
         
         public function setPlot($plot){
             $this->plot = $plot;
-        }
-
-        // Uso BBDD
-        /*public function getBBDD(){
-            // Conexion BBDD
-            $connection = BBDD::getInstance();
-            $connection =  $connection->getConnection();
-
-            // Peticion BBDD
-            $query = "SELECT * FROM peliculas WHERE id = '$this->id'";
-        }*/
-
-        public function setBBDD(){
-            // Conexion BBDD
-            $connection = BBDD::getInstance();
-            $connection =  $connection->getConnection();
-
-            // Peticion BBDD
-            $query = 
-                "insert into movie (Id, Year, Plot, Title)
-                values ('" . 
-                    $connection->real_escape_string($this->getId()) . "', " . 
-                    $this->getYear() . ", '" . 
-                    $connection->real_escape_string($this->getPlot()) . "','" . 
-                    $connection->real_escape_string($this->getTitle()) . 
-                "')";
-            if($connection->query($query)){
-                return true;
-            } 
-            return false;
         }
     }
