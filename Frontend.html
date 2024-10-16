@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <link rel="stylesheet" href="Styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PT Tesicnor Javier Aranguren</title>
 </head>
 <body>
-    <h1>Lista de Películas</h1>
-
     <!-- Filtros -->
-    <label for="filter-title">Filtrar por Título:</label>
-    <input type="text" id="filter-title" placeholder="Título.">
-
-    <label for="filter-year">Filtrar por Año:</label>
-    <input type="number" id="filter-year" placeholder="Año">
-
-    <button id="filter-btn">Aplicar Filtros</button>
+    <div class="filters-container">
+        <h1>Lista de Películas</h1>
+        <div class="filter">
+            <label for="filter-title">Título:</label>
+            <input type="text" id="filter-title" placeholder="Introduce título">
+        </div>
+        <div class="filter">
+            <label for="filter-year">Año:</label>
+            <input type="number" id="filter-year" placeholder="Introduce año">
+        </div>
+        <button id="filter-btn">Aplicar Filtros</button>
+    </div>
     
     <!-- Tabla  -->
     <table border="1" id="movie-table">
