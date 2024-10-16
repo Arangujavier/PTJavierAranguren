@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PT Tesicnor Javier Aranguren</title>
+</head>
+<body>
+    <h1>Lista de Películas</h1>
+
+    <!-- Filtros -->
+    <label for="filter-title">Filtrar por Título:</label>
+    <input type="text" id="filter-title" placeholder="Título.">
+
+    <label for="filter-year">Filtrar por Año:</label>
+    <input type="number" id="filter-year" placeholder="Año">
+
+    <button id="filter-btn">Aplicar Filtros</button>
+    
+    <!-- Tabla  -->
+    <table border="1" id="movie-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Año</th>
+                <th>Trama</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        let allMovies = [];
+
+        /**
+         * displayMovies: Muestra las peliculas proporcionadas mediante una tabla
+         * @movies Peliculas a mostrar
+         * Actualiza la vista
+         */
+        function displayMovies(movies) {
+            const tableBody = document.querySelector('#movie-table tbody');
+            tableBody.innerHTML = '';  // Limpiar la tabla antes de mostrar las nuevas filas
+
+            movies.forEach(movie => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${movie.id}</td>
+                    <td>${movie.title}</td>
+                    <td>${movie.year}</td>
+                    <td>${movie.plot}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        /**
+         * applyFilters: Si se han aplicado filtros, muestra solo las movies que las cumplan
+         */
+        function applyFilters() {
+            const titleFilter = document.getElementById('filter-title').value.toLowerCase();
+            const yearFilter = document.getElementById('filter-year').value;
+
+            const filteredMovies = allMovies.filter(movie => {
+                const matchesTitle = movie.title.toLowerCase().includes(titleFilter);
+                const matchesYear = yearFilter === '' || movie.year == yearFilter;
+                return matchesTitle && matchesYear;
+            });
+
+            displayMovies(filteredMovies);
+        }
+
+        // LISTENER
+        document.getElementById('filter-btn').addEventListener('click', applyFilters);
+
+        // Cargar peliculas del backend
+        fetch('Backend.php')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('No se ha obtenido respuesta ' + response.statusText);
+                }
+                return response.json();
+            })
+            .then(movies => {
+                allMovies = movies;
+                displayMovies(movies);
+            })
+            .catch(error => console.error('Error:', error));
+    </script>
+</body>
+</html>

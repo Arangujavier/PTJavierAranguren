@@ -24,3 +24,7 @@
 - Crear BBDD.
 - Conexion con BBDD.
 - Operaciones con BBDD.
+## 4: Crear interfaz para mostrar la información ##
+- Mostrar información con filtro.
+- Aplicar React.
+- Aplicar Css.
