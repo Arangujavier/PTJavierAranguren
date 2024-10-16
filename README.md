@@ -1,5 +1,20 @@
 # PTJavierAranguren ##
 ## Prueba técnica de Tesicnor ##
+### Despliege ###
+El despliege se realiza sobre la plataforma Xampp.
+Esta dispone de distintas fucionalidades, siendo la usada en este caso la de Apache, esta nos permite crear un servidor web donde ejecutar el programa.
+### Instalación ###
+Se debe instalar xampp, como se ha comentado en el apartado anterior, solo se debe seleccionar la opcion de apache.
+Una vez instalada se abre una ventana en la que se debe seleccionar Explorer, en  la cual se encuentra la carpeta htdocs, en ella se debe clonar el repositorio.
+Se vuelve a la ventana incial y se selecciona Start y Admin, se abre una ventana en el navegador donde se ejecuta la aplicación.
+### Tecnologías ###
+Se utilizan las siguientes:
+  - Xampp-> Apache
+  - Git, gitHub.
+  - Php, javascript, html, css, sql.
+  - Composer-> PhpUnit.
+### Etapas ###
+
 1. Obtener de la API toda la información relativa a las películas de &quot;Star Wars&quot;.
    
 2. De la información obtenida, quedarse con los siguientes datos:
