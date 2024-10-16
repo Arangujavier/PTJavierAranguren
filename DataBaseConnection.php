@@ -37,7 +37,7 @@
             $movies = $result->fetchAll(PDO::FETCH_ASSOC);
             $movie_array = array();
             foreach ($movies as $movie) {
-                $movie_array[] = new Movie($movie['Id'], $movie['Title'], $movie['year'], $movie['plot']);
+                $movie_array[] = new Movie($movie['Id'], $movie['Title'], $movie['Year'], $movie['Plot']);
             }
             return $movie_array;
         }
