@@ -4,12 +4,16 @@
 El despliege se realiza sobre la plataforma Xampp.
 Esta dispone de distintas fucionalidades, siendo la usada en este caso la de Apache, esta nos permite crear un servidor web donde ejecutar el programa.
 ### Instalación ###
-Se debe instalar xampp, como se ha comentado en el apartado anterior, solo se debe seleccionar la opcion de apache.
-Una vez instalada se abre una ventana en la que se debe seleccionar Explorer, en  la cual se encuentra la carpeta htdocs, en ella se debe clonar el repositorio.
-Se vuelve a la ventana incial y se selecciona Start y Admin, se abre una ventana en el navegador donde se ejecuta la aplicación.
+Se debe disponer de docker para realizar la instalación:
+1. Clonar el repositorio.
+2. Acceder al repositorio descargado.
+3. Abrir consola en este directorio.
+4. Ejecutar en la consola: `docker build -t pt_tesicnor .`
+5. Ejecutar en la consola: `docker run -p 8080:80 pt_tesicnor`
+6. Acceder a la siguiente url: http://localhost:8080/Frontend.html
 ### Tecnologías ###
 Se utilizan las siguientes:
-  - Xampp-> Apache
+  - Docker
   - Git, gitHub.
   - Php, javascript, html, css, sql.
   - Composer-> PhpUnit.
@@ -26,6 +30,8 @@ Se utilizan las siguientes:
 3. Consolidar la información en una base de datos.
    
 4. Ofrecer la información en una tabla o en una lista. Se tiene que poder filtrar los resultados por título y año.
+5. Implementar programa en docker.
+6. Usar react en la interfaz gráfica.
 
 ---
 ## 1: API ##
@@ -41,5 +47,8 @@ Se utilizan las siguientes:
 - Operaciones con BBDD.
 ## 4: Crear interfaz para mostrar la información ##
 - Mostrar información con filtro.
-- Aplicar React.
 - Aplicar Css.
+## 5: Implementar Docker ##
+- Ejecución completa del programa en un contenedor.
+- Prueba del contenedor mediante github actions.
+## 6: Implementar React ##
