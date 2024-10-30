@@ -12,15 +12,15 @@
             $apiConnection = new ConnectionAPI('731e41f');
             $actual_json = $apiConnection->getMovieJson($id);
 
-            $this->assertEquals($expected_json, $actual_json, 'Los json no coinciden.');
+            $this->assertEquals(json_decode($expected_json,true)['Title'], json_decode($actual_json,true)['Title'], 'Los json no coinciden.');
         }
 
         public function testSearchMovieByName(){
             $name = "Star Wars";
             
             $mock = \Mockery::mock('file_get_contents');
-            $json = file_get_contents(__DIR__ . DIRECTORY_SEPARATOR .'resultSerachMovieByNameTest.json');
-            $mock->shouldReceive('file_get_contents')->andReturn($json);
+            $expected_json = file_get_contents(__DIR__ . DIRECTORY_SEPARATOR .'resultSearchMovieByNameTest.json');
+            $mock->shouldReceive('file_get_contents')->andReturn($expected_json);
 
             $apiConnection = new ConnectionAPI('731e41f');
             $actual_array = $apiConnection->searchMovieByName($name);

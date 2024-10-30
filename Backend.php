@@ -1,9 +1,9 @@
 <?php
 header('Content-Type: application/json');
 
-require_once 'ConnectionApi.php';
-require_once 'Movie.php';
-require_once 'DataBaseConnection.php';
+require_once '/var/www/html/ConnectionAPI.php';
+require_once '/var/www/html/Movie.php';
+require_once '/var/www/html/DataBaseConnection.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $connection = new ConnectionAPI('731e41f');

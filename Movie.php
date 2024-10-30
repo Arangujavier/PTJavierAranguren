@@ -4,7 +4,7 @@
      * Se pueden proporcionar los datos para su creacion.
      * Se puede usar un json para su creacion.
      */
-    class movie{
+    class Movie{
         private $id;
         private $title;
         private $year;

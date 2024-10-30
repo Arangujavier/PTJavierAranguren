@@ -1,6 +1,6 @@
 <?php
-    require_once __DIR__ . '/vendor/autoload.php';
-    require_once __DIR__ . '/Movie.php'; 
+    require_once '/var/www/html/vendor/autoload.php';
+    require_once '/var/www/html/Movie.php'; 
     use Doctrine\DBAL\DriverManager;
 
     class DataBaseConnection{
