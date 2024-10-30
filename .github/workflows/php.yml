@@ -37,5 +37,8 @@ jobs:
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress
 
-    - name: Run test suite
-      run: composer run-script test
+    - name: Build Docker image
+      run: docker build -t my-php-app .
+
+    - name: Run test suite in Docker
+      run: docker run --rm my-php-app composer run-script test
